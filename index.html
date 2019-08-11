@@ -27,6 +27,7 @@
                         document.getElementsByClassName("ETA")[0].innerHTML = response.ETA;
                         document.getElementsByClassName("restartQueue")[0].checked = response.restartQueue;
                         lastUpdate = response.lastUpdate;
+                        document.title = `Q: ${response.place} / ${response.ETA} / 2Bored2Wait`;
                         const queueButton = document.getElementById('queueButton');
                         if(response.inQueue){
                             queueButton.innerHTML = "Stop queuing";
@@ -69,6 +70,7 @@
                 queueButton.className = 'start';
                 document.getElementsByClassName("place")[0].innerHTML = 'None';
                 document.getElementsByClassName("ETA")[0].innerHTML = 'None';
+                document.title = '2Bored2Wait';
                 lastUpdate = 0;
             }
 
