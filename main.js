@@ -30,6 +30,7 @@ function stop(){
 	webserver.isInQueue = false;
 	webserver.queuePlace = "None";
 	webserver.ETA = "None";
+	webserver.lastUpdate = "n/a";
 	client.end(); // disconnect
 	if (proxyClient) {
 		proxyClient.end("Stopped the proxy."); // boot the player from the server
@@ -55,6 +56,7 @@ function startQueuing() {
 			let ETA = headermessage.text.split("\n")[6].substring(27);
 			webserver.queuePlace = positioninqueue; // update info on the web page
 			webserver.ETA = ETA;
+			webserver.lastUpdate = Date.now();
 			server.motd = `Place in queue: ${positioninqueue}`; // set the MOTD because why not
 		}
 		if (finishedQueue === false && meta.name === "chat") { // we can know if we're about to finish the queue by reading the chat message
